@@ -30,7 +30,9 @@ public class ContactsView extends ViewPart {
         initializeSession(); // temporary tweak to build a fake model
         treeViewer = new TreeViewer(parent, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
         Platform.getAdapterManager().registerAdapters(adapterFactory, Contact.class);
-        getSite().setSelectionProvider(treeViewer);
+        
+        getSite().setSelectionProvider(treeViewer);//registered treeView as a selection provider. It listening to the window instead event
+        
         treeViewer.setLabelProvider(new WorkbenchLabelProvider());
         treeViewer.setContentProvider(new BaseWorkbenchContentProvider());
         treeViewer.setInput(session.getRoot());

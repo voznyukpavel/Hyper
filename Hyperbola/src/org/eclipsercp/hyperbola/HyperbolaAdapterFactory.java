@@ -12,6 +12,7 @@ import org.eclipsercp.hyperbola.model.Presence;
 public class HyperbolaAdapterFactory implements IAdapterFactory {
 
     private IWorkbenchAdapter groupAdapter = new IWorkbenchAdapter() {
+        
         public Object getParent(Object o) {
             return ((ContactsGroup) o).getParent();
         }
@@ -31,8 +32,7 @@ public class HyperbolaAdapterFactory implements IAdapterFactory {
         }
 
         public ImageDescriptor getImageDescriptor(Object object) {
-            return null;
-          //  return AbstractUIPlugin.imageDescriptorFromPlugin(Application.PLUGIN_ID, IImageKeys.GROUP);
+            return AbstractUIPlugin.imageDescriptorFromPlugin(Application.PLUGIN_ID, IImageKeys.GROUP);
         }
 
         public Object[] getChildren(Object o) {
@@ -52,10 +52,10 @@ public class HyperbolaAdapterFactory implements IAdapterFactory {
         }
 
         public ImageDescriptor getImageDescriptor(Object object) {
-  //          ContactsEntry entry = ((ContactsEntry) object);
- //           String key = presenceToKey(entry.getPresence());
- //           return AbstractUIPlugin.imageDescriptorFromPlugin(Application.PLUGIN_ID, key);
-            return null;
+            ContactsEntry entry = ((ContactsEntry) object);
+            String key = presenceToKey(entry.getPresence());
+            return AbstractUIPlugin.imageDescriptorFromPlugin(Application.PLUGIN_ID, key);
+
   }
 
         public Object[] getChildren(Object o) {
@@ -63,17 +63,17 @@ public class HyperbolaAdapterFactory implements IAdapterFactory {
         }
     };
 
- //   private String presenceToKey(Presence presence) {
-  //      if (presence == Presence.ONLINE)
-  //          return IImageKeys.ONLINE;
-  //      if (presence == Presence.AWAY)
-  //          return IImageKeys.AWAY;
- //       if (presence == Presence.DO_NOT_DISTURB)
- //           return IImageKeys.DO_NOT_DISTURB;
- //       if (presence == Presence.INVISIBLE)
- //           return IImageKeys.OFFLINE;
- //       return "";
- //   }
+    private String presenceToKey(Presence presence) {
+        if (presence == Presence.ONLINE)
+            return IImageKeys.ONLINE;
+        if (presence == Presence.AWAY)
+            return IImageKeys.AWAY;
+        if (presence == Presence.DO_NOT_DISTURB)
+            return IImageKeys.DO_NOT_DISTURB;
+        if (presence == Presence.INVISIBLE)
+            return IImageKeys.OFFLINE;
+        return "";
+   }
 
     public Object getAdapter(Object adaptableObject, Class adapterType) {
         if (adapterType == IWorkbenchAdapter.class && adaptableObject instanceof ContactsGroup)

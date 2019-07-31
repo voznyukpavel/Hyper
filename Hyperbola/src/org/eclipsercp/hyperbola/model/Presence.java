@@ -19,4 +19,6 @@ public class Presence {
     public String toString() {
       return value;
     }
+    
+    
 }
