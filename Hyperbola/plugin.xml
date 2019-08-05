@@ -32,5 +32,39 @@
             name="Contacts">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipsercp.hyperbola.ChatEditor"
+            default="false"
+            icon="icons/chat.gif"
+            id="org.eclipsercp.hyperbola.editors.chat"
+            name="chat">
+      </editor>
+   </extension>
+   <extension
+         id="product1"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipsercp.hyperbola.application"
+            name="Hyperbola Chat Client">
+         <property
+               name="appName"
+               value="Hyperbola Chat Client">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/alt16.gif,icons/alt32.gif">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/about.gif">
+         </property>
+         <property
+               name="aboutText"
+               value="%aboutText">
+         </property>
+      </product>
+   </extension>
 
 </plugin>

@@ -21,6 +21,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     private IWorkbenchAction aboutAction;
     private AddContactAction addContactAction;
     private StatusLineContributionItem statusItem;
+    private ChatAction chatAction;
     private Image statusImage;
 
     // private IWorkbenchAction test;
@@ -37,16 +38,18 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
         register(aboutAction);
         addContactAction = new AddContactAction(window);
         register(addContactAction);
+        chatAction = new ChatAction(window);
+        register(chatAction);
+      }
 
-    }
 
     @Override
     protected void fillMenuBar(IMenuManager menuBar) {
         MenuManager hyperbolaMenu = new MenuManager("&Hyperbola", "hyperbola");
         hyperbolaMenu.add(addContactAction);
+        hyperbolaMenu.add(chatAction);
         hyperbolaMenu.add(new Separator());
         hyperbolaMenu.add(exitAction);
-
         MenuManager helpMenu = new MenuManager("&Help", "help");
         helpMenu.add(aboutAction);
         menuBar.add(hyperbolaMenu);
@@ -59,6 +62,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
         IToolBarManager toolbar = new ToolBarManager(coolBar.getStyle());
         coolBar.add(toolbar);
         toolbar.add(addContactAction);
+        toolbar.add(chatAction);
      //   toolbar.add(new Separator());
      //   toolbar.add(addContactAction);
     }

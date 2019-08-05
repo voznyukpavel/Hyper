@@ -11,30 +11,30 @@ import org.eclipse.ui.PlatformUI;
  */
 public class Application implements IApplication {
     public static final String PLUGIN_ID = "org.eclipsercp.hyperbola";
-	@Override
-	public Object start(IApplicationContext context) throws Exception {
-		Display display = PlatformUI.createDisplay();
-		try {
-			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
-			if (returnCode == PlatformUI.RETURN_RESTART)
-				return IApplication.EXIT_RESTART;
-			else
-				return IApplication.EXIT_OK;
-		} finally {
-			display.dispose();
-		}
-		
-	}
 
-	@Override
-	public void stop() {
-		if (!PlatformUI.isWorkbenchRunning())
-			return;
-		final IWorkbench workbench = PlatformUI.getWorkbench();
-		final Display display = workbench.getDisplay();
-		display.syncExec(() -> {
-			if (!display.isDisposed())
-				workbench.close();
-		});
-	}
+    @Override
+    public Object start(IApplicationContext context) throws Exception {
+        Display display = PlatformUI.createDisplay();
+        try {
+            int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
+            if (returnCode == PlatformUI.RETURN_RESTART)
+                return IApplication.EXIT_RESTART;
+            else
+                return IApplication.EXIT_OK;
+        } finally {
+            display.dispose();
+        }
+    }
+
+    @Override
+    public void stop() {
+        if (!PlatformUI.isWorkbenchRunning())
+            return;
+        final IWorkbench workbench = PlatformUI.getWorkbench();
+        final Display display = workbench.getDisplay();
+        display.syncExec(() -> {
+            if (!display.isDisposed())
+                workbench.close();
+        });
+    }
 }

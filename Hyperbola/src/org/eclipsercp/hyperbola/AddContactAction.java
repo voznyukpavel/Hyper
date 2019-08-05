@@ -19,7 +19,6 @@ public class AddContactAction extends Action implements ISelectionListener, Acti
     private final IWorkbenchWindow window;
 
     public final static String ID = "org.eclipsercp.hyperbola.addContact";
-
     private IStructuredSelection selection;
 
     public AddContactAction(IWorkbenchWindow window) {
