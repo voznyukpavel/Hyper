@@ -8,13 +8,11 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.StatusLineContributionItem;
 import org.eclipse.jface.action.ToolBarManager;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     private IWorkbenchAction exitAction;
@@ -22,9 +20,6 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     private AddContactAction addContactAction;
     private StatusLineContributionItem statusItem;
     private ChatAction chatAction;
-    private Image statusImage;
-
-    // private IWorkbenchAction test;
 
     public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
         super(configurer);
@@ -63,8 +58,6 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
         coolBar.add(toolbar);
         toolbar.add(addContactAction);
         toolbar.add(chatAction);
-     //   toolbar.add(new Separator());
-     //   toolbar.add(addContactAction);
     }
 
     @Override

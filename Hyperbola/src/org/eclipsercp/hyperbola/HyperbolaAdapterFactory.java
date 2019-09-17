@@ -74,7 +74,7 @@ public class HyperbolaAdapterFactory implements IAdapterFactory {
             return IImageKeys.OFFLINE;
         return "";
    }
-
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public Object getAdapter(Object adaptableObject, Class adapterType) {
         if (adapterType == IWorkbenchAdapter.class && adaptableObject instanceof ContactsGroup)
             return groupAdapter;
@@ -83,6 +83,7 @@ public class HyperbolaAdapterFactory implements IAdapterFactory {
         return null;
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public Class[] getAdapterList() {
         return new Class[] { IWorkbenchAdapter.class };
     }

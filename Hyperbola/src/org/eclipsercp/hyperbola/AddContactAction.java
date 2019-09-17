@@ -1,8 +1,5 @@
 package org.eclipsercp.hyperbola;
 
-import java.util.Iterator;
-import java.util.List;
-
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
